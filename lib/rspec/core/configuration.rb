@@ -2124,6 +2124,7 @@ module RSpec
         relative_file = Metadata.relative_path(file)
         reporter.notify_non_example_exception(ex, "An error occurred while loading #{relative_file}.")
         RSpec.world.wants_to_quit = true
+        raise ex
       rescue SystemExit => ex
         relative_file = Metadata.relative_path(file)
         reporter.notify_non_example_exception(
